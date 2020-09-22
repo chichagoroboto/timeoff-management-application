@@ -123,7 +123,25 @@ npm start
 ```
 ## Architecture to be deployed
 
-bla bla bla bla
+The simplest way to deploy the timeoff-management-application application create a docker image to run this application, and deploy the infrastructure required for it to run for this we will use github action as CI / CD so that everything is CODE. For this we must know the following tools:
+
+What is GitHub Actions?
+
+GitHub Actions is an API for cause and effect on GitHub: orchestrate any workflow, based on any event, while GitHub manages the execution, provides rich feedback, and secures every step along the way. With GitHub Actions, workflows and steps are just code in a repository, so you can create, share, reuse, and fork your software development practices.
+
+What is AWS ECS ?
+Amazon Elastic Container Service (Amazon ECS) is a scalable, high-performance container orchestration service that supports Docker containers and allows you to easily run and scale containerized applications on AWS.
+It is amazon's way of allowing us to run and manage Containers at scale. ECS eliminates the need for us to install and run our orchestration engine for running, monitoring, and managing our clusters.
+ 
+What is AWS ECR ?
+ECR (Elastic Container Repository) which is a fully-managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images.
+Deploying ECS can be a rather difficult error-prone task that would benefit from the immutability that Infrastructure as code provides. 
+ 
+What is Terraform ?
+Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. Terraform can manage existing and popular service providers as well as custom in-house solutions.
+It allows you to describe your infrastructure via configuration files. Once you have your files in place, the Terraform CLI allows you to spin up cloud resources from the command line.
+
+The following diagram shows the infrastructure used for this case:
 
 ![Architecture Screenshot](https://github.com/chichagoroboto/timeoff-management-application/blob/master/pictures/Diagram.png)
 
