@@ -125,7 +125,7 @@ npm start
 
 bla bla bla bla
 
-![Architecture Screenshot](https://raw.githubusercontent.com/timeoff-management/pictures/Diagram.png)
+![Architecture Screenshot](https://github.com/chichagoroboto/timeoff-management-application/blob/master/pictures/Diagram.png)
 
 ## Feedback
 
