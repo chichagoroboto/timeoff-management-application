@@ -124,7 +124,7 @@ resource "aws_lb_listener" "listener" {
 }
 
 resource "aws_ecs_service" "my_service" {
-  name            = "my-service"                       # Naming our first service
+  name            = "my-service"                             # Naming our first service
   cluster         = "${aws_ecs_cluster.my_cluster.id}"       # Referencing our created Cluster
   task_definition = "${aws_ecs_task_definition.my_task.arn}" # Referencing the task our service will spin up
   launch_type     = "FARGATE"
