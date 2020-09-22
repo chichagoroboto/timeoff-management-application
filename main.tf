@@ -35,7 +35,7 @@ resource "aws_ecs_task_definition" "my_task" {
   [
     {
       "name": "my-task",
-      "image": "${aws_ecr_repository.my_first_ecr_repo.repository_url}",
+      "image": "${aws_ecr_repository.my_ecr_repo.repository_url}",
       "essential": true,
       "portMappings": [
         {
