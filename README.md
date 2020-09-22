@@ -125,24 +125,25 @@ npm start
 
 The simplest way to deploy the timeoff-management-application application create a docker image to run this application, and deploy the infrastructure required for it to run for this we will use github action as CI / CD so that everything is CODE. For this we must know the following tools:
 
-What is GitHub Actions?
+###What is GitHub Actions?
 
 GitHub Actions is an API for cause and effect on GitHub: orchestrate any workflow, based on any event, while GitHub manages the execution, provides rich feedback, and secures every step along the way. With GitHub Actions, workflows and steps are just code in a repository, so you can create, share, reuse, and fork your software development practices.
 
-What is AWS ECS ?
+####What is AWS ECS ?
 Amazon Elastic Container Service (Amazon ECS) is a scalable, high-performance container orchestration service that supports Docker containers and allows you to easily run and scale containerized applications on AWS.
 It is amazon's way of allowing us to run and manage Containers at scale. ECS eliminates the need for us to install and run our orchestration engine for running, monitoring, and managing our clusters.
  
-What is AWS ECR ?
+###What is AWS ECR ?
 ECR (Elastic Container Repository) which is a fully-managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images.
 Deploying ECS can be a rather difficult error-prone task that would benefit from the immutability that Infrastructure as code provides. 
  
-What is Terraform ?
+###What is Terraform ?
 Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. Terraform can manage existing and popular service providers as well as custom in-house solutions.
 It allows you to describe your infrastructure via configuration files. Once you have your files in place, the Terraform CLI allows you to spin up cloud resources from the command line.
 
 The following diagram shows the infrastructure used for this case:
 
+## Screenshots
 ![Architecture Screenshot](https://github.com/chichagoroboto/timeoff-management-application/blob/master/pictures/Diagram.png)
 
 solo nos queda inicar  con el despliegue 
@@ -157,7 +158,8 @@ guardaremos el tfstate el terraform en un bucket s3 para asi tener a la mano sie
 }
 ```
 
-Provisioning infrastructure on AWS
+###Provisioning infrastructure on AWS
+
 We will provision the infrastructure necessary to run our cloud application successfully using the AWS provider Terraform.
 We continue with the trraform code that creates the infra Create Default VPC, Subnets, ECS Service, Task Definitions, IAM Role for ECS Execution, ECR Lifecycle Policy, Security Groups
 
@@ -325,6 +327,15 @@ resource "aws_security_group" "service_security_group" {
   }
 }
 ```
+### Configure GitHub Actions
+GitHub Actions make use of a YAML-formatted workflow file. This file establishes the configuration for things such as what events should include action processes, the type of runner to use, and the configuration of the jobs with the required steps to reach completion. In order for the GitHub Actions process to pick up the YAML file, there’s a specific location for it to live. Each repository using actions requires a directory structure of /.github/workflows
+
+For this case we will create two yml files, the first one is terraform.yml, it will be embedded to show all the required infrastructure for our application to run. The second file is aws.yml. This workflow will create and send the image of the TimeOff.Management application to Amazon ECR.
+When the pipeline ends it will automatically load the application in the URL of our application load balancer
+
+## Screenshots
+
+![Architecture Screenshot](https://github.com/chichagoroboto/timeoff-management-application/blob/master/pictures/Diagram1.png)
 
 ## Feedback
 
