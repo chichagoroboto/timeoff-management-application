@@ -121,7 +121,11 @@ npm install
 npm run-script db-update
 npm start
 ```
+## Architecture to be deployed
 
+bla bla bla bla
+
+![Architecture Screenshot](https://raw.githubusercontent.com/timeoff-management/pictures/Diagram.png)
 
 ## Feedback
 
